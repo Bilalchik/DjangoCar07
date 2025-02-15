@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <center>
+        <h1>Создание объявления</h1>
+        <form method="post" action="." enctype="multipart/form-data">
+            {% csrf_token %}
+            <label>Категория:</label>
+              <select name="category_id">\
+                  {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.title }}</option>
+                  {% endfor %}
+              </select>
+        <br><br><br>
+            <label>Название:</label>
+            <input type="text" name="title" placeholder="Введите название">
+        <br><br><br>
+            <label>Model:</label>
+            <input type="text" name="model" placeholder="Введите Model">
+        <br><br><br>
+            <label>year:</label>
+            <input type="number" name="year" placeholder="Введите year">
+        <br><br><br>
+            <label>Объем:</label>
+            <input type="number" name="engine_capacity" placeholder="Введите Объем">
+        <br><br><br>
+            <label>odometer:</label>
+            <input type="number" name="odometer" placeholder="Введите odometer">
+        <br><br><br>
+            <label>Color:</label>
+            <select name="color_id">
+                {% for color in colors %}
+                    <option value="{{ color.id }}">{{ color.title }}</option>
+                {% endfor %}
+            </select>
+        <br><br><br>
+            <label>Image:</label>
+            <input type="file" name="image">
+            <br><br><br>
+
+            <button type="submit">Сохранить</button>
+        </form>
+
+    </center>
+</body>
+</html>
