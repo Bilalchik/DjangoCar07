@@ -27,6 +27,7 @@ class Car(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     title = models.CharField(max_length=123)
     model = models.CharField(max_length=223)
+    description = models.TextField()
     year = models.PositiveSmallIntegerField()
     engine_capacity = models.DecimalField(max_digits=3, decimal_places=1)
     odometer = models.PositiveIntegerField()
