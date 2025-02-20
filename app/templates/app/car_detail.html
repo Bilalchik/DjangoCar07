@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <center>
+        <br><br><br>
+        <a href="{% url 'delete' car.id %}"><h1>Удалить</h1></a>
+        <h1>{{ car.title }}</h1>
+        <img src="{{ car.image.url }}">
+        <br><br><br>
+
+        <h1>Изменить объект</h1>
+
+        <form method="post" action="." enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">Изменить</button>
+        </form>
+    </center>
+
+</body>
+</html>

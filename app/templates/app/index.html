@@ -38,13 +38,15 @@
     <div class="row">
       {% for car in cars %}
         <div class="col-12 col-sm-6 col-lg-4 mb-4">
-          <div class="card h-100 shadow-sm">
-            <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.title }}">
-            <div class="card-body">
-              <h5 class="card-title">{{ car.title }}</h5>
-              <p class="card-text">{{ car.description|truncatechars:50 }}</p>
+          <a href="{% url 'detail' car.id %}">
+            <div class="card h-100 shadow-sm">
+              <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.title }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ car.title }}</h5>
+                <p class="card-text">{{ car.description|truncatechars:50 }}</p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
       {% endfor %}
     </div>
